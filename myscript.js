@@ -39,14 +39,18 @@ observer.observe(main_element, {
 
 function replaceEmojis(){
     setTimeout(function(){
-        var imgs = document.getElementsByTagName("img")
-        for (var i = 0; i < imgs.length; i++) {
-            if (imgs[i].alt in emotes){
-                imgs[i].src = emotes[imgs[i].alt]
-            }
-        }
+        replaceEmotes()
         replaceText()
     }, 50);
+}
+
+function replaceEmotes() {
+    var imgs = document.getElementsByTagName("img")
+    for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].alt in emotes){
+            imgs[i].src = emotes[imgs[i].alt]
+        }
+    }
 }
 
 function replaceText() {

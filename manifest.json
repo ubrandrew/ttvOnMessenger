@@ -1,7 +1,7 @@
 {
     "name": "TTV emotes!",
     "version": "1.0",
-    "description": "TTV emotes on messenger",
+    "description": "TTV emotes on facebook messenger and chat!",
     "content_scripts": [
         {
             "matches": ["*://*.messenger.com/*", "*://*.facebook.com/*"],
