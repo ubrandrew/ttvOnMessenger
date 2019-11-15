@@ -1,0 +1,21 @@
+{
+    "name": "TTV emotes!",
+    "version": "1.0",
+    "description": "TTV emotes on messenger",
+    "content_scripts": [
+        {
+            "matches": ["*://*.messenger.com/*", "*://*.facebook.com/*"],
+            "js": ["myscript.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "browser_action": {
+
+    },
+    "web_accessible_resources": [
+        "images/*"
+    ],
+    "manifest_version": 2
+  }
