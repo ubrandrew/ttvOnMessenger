@@ -17,19 +17,6 @@ class SettingsPage extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     };
 
-    handleshit(setting) {
-        if (setting === "ttv_toggle") {
-            this.setState((state) => ({
-                ttv_toggle: !state.ttv_toggle
-            }));
-        }
-        else {
-            this.setState((state) => ({
-                bttv_toggle: !state.bttv_toggle
-            }));
-        }
-    };
-
     handleChange(event) {
         const attr = event.target.name
         this.setState(state => {
