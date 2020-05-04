@@ -1,7 +1,19 @@
 const ttv_emotes_url = chrome.runtime.getURL('ttv_mappings.json')
 const bttv_emotes_url = chrome.runtime.getURL('bttv_mappings.json')
 
-let ttv_emotes, bttv_emotes
+var ttv_toggle, bttv_toggle
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        if (request.key == "ttv_toggle") {
+            ttv_toggle = request.newVal
+        } else if (request.key == "bttv_toggle") {
+            bttv_toggle = request.newVal
+        } else if (request.key == "init") {
+            ttv_toggle = request.payload.ttv_toggle
+            bttv_toggle = request.payload.bttv_toggle
+        }
+        sendResponse({ result: "changed" });
+    });
 
 fetch(ttv_emotes_url)
     .then((response) => {
@@ -45,24 +57,30 @@ function subscriber(mutations) {
         if (mutation.target.className == '_41ud' && mutation.target.tagName == 'DIV')
             setTimeout(function () {
                 replaceTextWithEmotes(mutation.target.children)
-            }, 1000);
+            }, 500);
     });
 }
 
 function replaceTextWithEmotes(elements) {
     for (const element of elements) {
         if (element.className.includes('clearfix _o46 _3erg')) {
-            var textElement = element.children[0].children[1].children[0]
-            var text = textElement.innerHTML;
+            let textElement;
+            try {
+                textElement = element.children[0].children[1].children[0]
+            }
+            catch (err) {
+                continue
+            }
 
-            var words = text.split(" ");
-            var emote_present = false;
+            let text = textElement.innerHTML;
+            let words = text.split(" ");
+            let emote_present = false;
             words.map(function (item, i) {
-                if (item != "" && item in ttv_emotes) {
+                if (item != "" && item in ttv_emotes && ttv_toggle) {
                     words[i] = "<img src=\"" + ttv_emotes[item] + "\">"
                     emote_present = true
                 }
-                else if (item != "" && item in bttv_emotes) {
+                else if (item != "" && item in bttv_emotes && bttv_toggle) {
                     words[i] = "<img src=\"" + bttv_emotes[item] + "\">"
                     emote_present = true
                 }
