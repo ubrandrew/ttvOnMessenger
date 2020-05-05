@@ -1,18 +1,17 @@
+// Function that sends data into the content_scripts
 function sendMessageToAllMessengerTabs(setting, message) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        console.log(tabs)
         chrome.tabs.sendMessage(
             tabs[0].id,
             {
                 key: setting,
-                newVal: message
+                payload: message
             },
-            function (response) {
-                console.log(response);
-            });
+            function () { });
     });
 }
 
+// function that parses json objects into chrome LOCAL storage
 function loadMappingsIntoChromeStorage(sourceList) {
     for (source of sourceList) {
         fetch(source)
@@ -21,12 +20,13 @@ function loadMappingsIntoChromeStorage(sourceList) {
             })
             .then(json => {
                 for (emote in json) {
-                    chrome.storage.local.set({ emote: json[emote] }, function () { })
+                    chrome.storage.local.set({ [emote]: json[emote] }, function () { })
                 }
             })
     }
 }
 
+// function that returns settings from chrome storage
 async function getSettings() {
     return new Promise(function (resolve, reject) {
         chrome.storage.sync.get(['ttv_toggle', 'bttv_toggle'], (data) => {
@@ -38,25 +38,19 @@ async function getSettings() {
     })
 }
 
-chrome.storage.onChanged.addListener(function (changes, namespace) {
-    for (var key in changes) {
-        var storageChange = changes[key];
-        if (key === "ttv_toggle" || key === "bttv_toggle") {
-            sendMessageToAllMessengerTabs(key, storageChange.newValue)
-        }
-    }
-});
-
+// TODO: onUpdated isnt specific to inital page loads (also, look into what tabs are watched, how theyre watched, etc)
+//       Something to refactor
+// Instatiating a LISTENER to fire when tab updates (used to initialize settings)
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete') {
         getSettings().then((value) => {
-            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, { key: "init", payload: value }, function (response) { });
-            });
+            sendMessageToAllMessengerTabs('init', value);
         })
     }
 });
 
+// Listener that triggers when the chrome extension is installed
+// Initializes settings 
 chrome.runtime.onInstalled.addListener(function () {
     const ttv_emotes_url = chrome.runtime.getURL('ttv_mappings.json')
     const bttv_emotes_url = chrome.runtime.getURL('bttv_mappings.json')
@@ -64,10 +58,7 @@ chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({ ttv_toggle: true, bttv_toggle: true }, function () {
         console.log('Value is set to ' + true);
     });
-    sendMessageToAllMessengerTabs('ttv_toggle', true)
-    sendMessageToAllMessengerTabs('bttv_toggle', true)
-    loadMappingsIntoChromeStorage([ttv_emotes_url, bttv_emotes_url])
+    loadMappingsIntoChromeStorage([ttv_emotes_url])
 });
-
 
 console.log("background running")

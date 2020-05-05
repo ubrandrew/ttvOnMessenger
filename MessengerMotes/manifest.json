@@ -5,8 +5,7 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.messenger.com/*",
-                "*://*.facebook.com/*"
+                "*://*.messenger.com/*"
             ],
             "js": [
                 "myscript.js"
@@ -23,7 +22,6 @@
         "default_popup": "index.html"
     },
     "web_accessible_resources": [
-        "images/*",
         "bttv_mappings.json",
         "ttv_mappings.json"
     ],
