@@ -1,4 +1,5 @@
 // Function that sends data into the content_scripts
+// currently unused
 function sendMessageToAllMessengerTabs(setting, message) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.sendMessage(
@@ -11,54 +12,61 @@ function sendMessageToAllMessengerTabs(setting, message) {
     });
 }
 
-// function that parses json objects into chrome LOCAL storage
-function loadMappingsIntoChromeStorage(sourceList) {
-    for (source of sourceList) {
-        fetch(source)
-            .then((response) => {
-                return response.json()
-            })
-            .then(json => {
-                for (emote in json) {
-                    chrome.storage.local.set({ [emote]: json[emote] }, function () { })
-                }
-            })
-    }
+// async function to load json into memory
+async function getMappings(url) {
+    return fetch(url)
+        .then((response) => {
+            return response.json()
+        })
 }
 
-// function that returns settings from chrome storage
-async function getSettings() {
-    return new Promise(function (resolve, reject) {
-        chrome.storage.sync.get(['ttv_toggle', 'bttv_toggle'], (data) => {
-            resolve({
-                ttv_toggle: data.ttv_toggle,
-                bttv_toggle: data.bttv_toggle,
-            });
-        })
+// async function to consolidate emote dicstionaries from different sources
+// logic to handle identical emotes handled here (if rank diff is > 200, use lower ranked emote)
+async function consolidateMappings(mappingsList) {
+    consolidated_map = {}
+    for (mapping of mappingsList) {
+        let temp_mapping = await getMappings(mapping)
+        for (key in temp_mapping) {
+            consolidated_map[key] = temp_mapping[key]
+            // if (!(key in consolidated_map)) {
+            //     consolidated_map[key] = temp_mapping[key]
+            // } else if (consolidated_map[key].rank - temp_mapping[key].rank > 200) {
+            //     console.log(`CHOSE ${key} from ${temp_mapping[key].class} over ${consolidated_map[key].class}`)
+            //     consolidated_map[key] = temp_mapping[key]
+            // } else {
+            //     console.log(`CHOSE ${key} from ${consolidated_map[key].class} over ${temp_mapping[key].class}`)
+            // }
+        }
+    }
+    return consolidated_map
+}
+
+// function that parses json objects into chrome LOCAL storage
+async function loadMappingsIntoChromeStorage(sourceList) {
+    var num = 0
+    consolidateMappings(sourceList).then((map) => {
+        for (key in map) {
+            chrome.storage.local.set({ [key]: map[key] }, function () {
+                // num++;
+                // console.log("added " + key + ", " + num)
+            })
+        }
     })
 }
 
-// TODO: onUpdated isnt specific to inital page loads (also, look into what tabs are watched, how theyre watched, etc)
-//       Something to refactor
-// Instatiating a LISTENER to fire when tab updates (used to initialize settings)
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    if (changeInfo.status == 'complete') {
-        getSettings().then((value) => {
-            sendMessageToAllMessengerTabs('init', value);
-        })
-    }
-});
 
 // Listener that triggers when the chrome extension is installed
 // Initializes settings 
 chrome.runtime.onInstalled.addListener(function () {
     const ttv_emotes_url = chrome.runtime.getURL('ttv_mappings.json')
     const bttv_emotes_url = chrome.runtime.getURL('bttv_mappings.json')
+    const ffz_emotes_url = chrome.runtime.getURL('ffz_mappings.json')
 
-    chrome.storage.sync.set({ ttv_toggle: true, bttv_toggle: true }, function () {
+    chrome.storage.sync.set({ ttv_toggle: true, bttv_toggle: true, ffz_toggle: true, label_toggle: true }, function () {
         console.log('Value is set to ' + true);
     });
-    loadMappingsIntoChromeStorage([ttv_emotes_url])
+    console.log(ffz_emotes_url)
+    loadMappingsIntoChromeStorage([ffz_emotes_url, bttv_emotes_url, ttv_emotes_url])
 });
 
 console.log("background running")

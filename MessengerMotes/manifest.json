@@ -9,6 +9,9 @@
             ],
             "js": [
                 "myscript.js"
+            ],
+            "css": [
+                "tooltip.css"
             ]
         }
     ],
@@ -23,7 +26,8 @@
     },
     "web_accessible_resources": [
         "bttv_mappings.json",
-        "ttv_mappings.json"
+        "ttv_mappings.json",
+        "ffz_mappings.json"
     ],
     "permissions": [
         "storage"
