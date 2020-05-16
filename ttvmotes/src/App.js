@@ -1,31 +1,52 @@
 import React from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import TabPanel from './components/TabPanel';
+import SettingsPage from './pages/SettingsPage';
+import EmotePage from './pages/EmotePage';
 
-import SettingsPage from './Settings'
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTab: 0
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
 
-export default function CenteredTabs() {
-  const [value, setValue] = React.useState(0);
+  handleChange(event, newValue) {
+    console.log(newValue)
+    this.setState({ currentTab: newValue })
+  }
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  render() {
+    return (
+      <div>
+        <Tabs
+          value={this.state.currentTab}
+          onChange={this.handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+        >
+          <Tab label="Settings" />
+          <Tab label="Groups" />
+          <Tab label="Explore" />
+        </Tabs>
+        <TabPanel value={this.state.currentTab} index={0}>
+          <SettingsPage></SettingsPage>
+        </TabPanel>
+        <TabPanel value={this.state.currentTab} index={1}>
+          <div>Coming soon</div>
+        </TabPanel>
+        <TabPanel value={this.state.currentTab} index={2}>
+          <EmotePage></EmotePage>
+        </TabPanel>
 
-  return (
-    <div>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        centered
-      >
-        <Tab label="Settings" />
-        <Tab label="Groups" />
-        <Tab label="Explore" />
-      </Tabs>
-      <SettingsPage />
-    </div>
-  );
+      </div>
+    );
+  }
 }
+
+export default App;
