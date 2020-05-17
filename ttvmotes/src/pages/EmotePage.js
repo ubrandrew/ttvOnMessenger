@@ -1,6 +1,6 @@
 /* global chrome */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import SearchBar from '../components/SearchBar';
@@ -11,93 +11,147 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Pagination from "@material-ui/lab/Pagination";
+import TablePagination from "@material-ui/core/TablePagination";
+import { makeStyles } from "@material-ui/core/styles";
 
-
-/*
-First, get filtered list
-*/
-
-export default class EmotePage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            emotesList: [],
-            filteredList: [],
-            filters: [],
-            searchQuery: "",
-            currentPage: 0,
-            totalPages: 0,
-            loading: true
-        }
-        this.handleSearchInput = this.handleSearchInput.bind(this);
+const useStyles = makeStyles({
+    root: {
+        width: "100%"
+    },
+    container: {
+        maxHeight: 300
     }
+});
 
-    handleSearchInput(e) {
+const columns = [
+    { id: "name", label: "Name", minWidth: 170 },
+    { id: "emote", label: "Emote", minWidth: 100 }
+    // {
+    //     id: "population",
+    //     label: "Population",
+    //     minWidth: 170,
+    //     align: "right",
+    //     format: value => value.toLocaleString("en-US")
+    // },
+    // {
+    //     id: "size",
+    //     label: "Size\u00a0(km\u00b2)",
+    //     minWidth: 170,
+    //     align: "right",
+    //     format: value => value.toLocaleString("en-US")
+    // },
+    // {
+    //     id: "density",
+    //     label: "Density",
+    //     minWidth: 170,
+    //     align: "right",
+    //     format: value => value.toFixed(2)
+    // }
+];
+
+export default function EmotePage(props) {
+    const classes = useStyles();
+    const [loading, setLoading] = React.useState(true);
+    const [currentPage, setCurrentPage] = React.useState(0);
+    const [emotesList, setEmotesList] = React.useState([]);
+    const [filteredList, setFilteredList] = React.useState([]);
+    const [searchQuery, setSearchQuery] = React.useState("");
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+    const handleSearchInput = (e) => {
         var value = e.target.value;
-        console.log(e)
-        this.setState({
-            searchQuery: value
+        setSearchQuery(value);
+        console.log(value)
+        var filtered = emotesList.filter(emote => {
+            return emote.toLowerCase().includes(value.toLowerCase())
         })
-        console.log(this.state.searchQuery)
-    }
+        setFilteredList(filtered)
+    };
 
-    componentDidMount() {
-        chrome.storage.local.get(null, (emotes) => {
-            console.log(emotes)
-            this.setState({
-                emotesList: Object.keys(emotes),
-                loading: false
-            })
-        })
-    }
+    const handleChangePage = (event, newPage) => {
+        setCurrentPage(newPage);
+    };
 
-    render() {
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(event.target.value);
+        setCurrentPage(0);
+    };
 
-        const filteredEmotes = this.state.emotesList.filter(emote => {
-            return emote.toLowerCase().includes(this.state.searchQuery.toLowerCase())
-        })
-        const paginatedEmotes = [];
-        while (filteredEmotes.length) paginatedEmotes.push(filteredEmotes.splice(0, 5));
-        return (
-            <div>
-                {this.state.loading
-                    ?
-                    <Backdrop open={this.state.loading}>
-                        <CircularProgress color="inherit" />
-                    </Backdrop>
-                    :
-                    <div>
-                        <SearchBar handleSearchInput={this.handleSearchInput} searchQuery={this.state.searchQuery} />
-                        <TableContainer component={Paper}>
-                            <Table aria-label="simple table">
+    useEffect(() => {
+        // chrome.storage.local.get(null, (emotes) => {
+        //     console.log(emotes)
+        //     this.setState({
+        //         emotesList: Object.keys(emotes),
+        //         loading: false
+        //     })
+        // })
+        var list = ["test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9"]
+        setEmotesList(list);
+        setFilteredList(list)
+        setLoading(false);
+    }, []);
+
+    return (
+        <div>
+            {loading
+                ?
+                <Backdrop open={loading}>
+                    <CircularProgress color="inherit" />
+                </Backdrop>
+                :
+                <div>
+                    <Paper className={classes.root}>
+                        <SearchBar handleSearchInput={handleSearchInput} searchQuery={searchQuery} />
+
+                        <TableContainer className={classes.container}>
+                            <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Emote Name</TableCell>
-                                        {/* <TableCell align="right">Emote</TableCell>
-                                        <TableCell align="right">Class</TableCell>
-                                        <TableCell align="right">Toggle</TableCell> */}
+                                        {columns.map(column => (
+                                            <TableCell
+                                                key={column.id}
+                                                align={column.align}
+                                                style={{ minWidth: column.minWidth }}
+                                            >
+                                                {column.label}
+                                            </TableCell>
+                                        ))}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {paginatedEmotes[this.state.currentPage] && paginatedEmotes[this.state.currentPage].map((row) => (
-                                        <TableRow key={row}>
-                                            <TableCell component="th" scope="row">
-                                                {row}
-                                            </TableCell>
-                                            {/* <TableCell align="right">{row.carbs}</TableCell>
-                                            <TableCell align="right">{row.carbs}</TableCell>
-                                            <TableCell align="right">{row.protein}</TableCell> */}
-                                        </TableRow>
-                                    ))}
-                                    {!paginatedEmotes[this.state.currentPage] && <div>No emotes to show</div>}
+                                    {filteredList
+                                        .slice(currentPage * rowsPerPage, currentPage * rowsPerPage + rowsPerPage)
+                                        .map(row => {
+                                            return (
+                                                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                                                    {columns.map(column => {
+                                                        const value = row[column.id];
+                                                        return (
+                                                            <TableCell key={column.id} align={column.align}>
+                                                                {column.format && typeof value === "number"
+                                                                    ? column.format(value)
+                                                                    : value}
+                                                            </TableCell>
+                                                        );
+                                                    })}
+                                                </TableRow>
+                                            );
+                                        })}
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Pagination count={10} shape="rounded" />
-                    </div>
-                }
-            </div>
-        )
-    }
+                        <TablePagination
+                            rowsPerPageOptions={[5, 10, 25, 100]}
+                            component="div"
+                            count={filteredList.length}
+                            rowsPerPage={rowsPerPage}
+                            page={currentPage}
+                            onChangePage={handleChangePage}
+                            onChangeRowsPerPage={handleChangeRowsPerPage}
+                        />
+                    </Paper>
+                </div>
+            }
+        </div>
+    )
 }

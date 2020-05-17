@@ -9,6 +9,7 @@ export default function TabPanel(props) {
     console.log(`TAB PANEL VAL: ${value}, ${index}`)
     return (
         <div
+            style={{ flexGrow: 1 }}
             role="tabpanel"
             hidden={value !== index}
             id={`full-width-tabpanel-${index}`}

@@ -8,7 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import Typography from '@material-ui/core/Typography'
 
 import { withStyles } from '@material-ui/core/styles';
 
@@ -75,37 +75,44 @@ class SettingsPage extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     };
     componentDidMount() {
-        chrome.storage.sync.get(['ttv_toggle', 'bttv_toggle', 'ffz_toggle', 'label_toggle'], (data) => {
-            this.setState({
-                ttv_toggle: data.ttv_toggle,
-                bttv_toggle: data.bttv_toggle,
-                ffz_toggle: data.ffz_toggle,
-                label_toggle: data.label_toggle,
-                loading: false
-            });
-        })
+        // chrome.storage.sync.get(['ttv_toggle', 'bttv_toggle', 'ffz_toggle', 'label_toggle'], (data) => {
+        //     this.setState({
+        //         ttv_toggle: data.ttv_toggle,
+        //         bttv_toggle: data.bttv_toggle,
+        //         ffz_toggle: data.ffz_toggle,
+        //         label_toggle: data.label_toggle,
+        //         loading: false
+        //     });
+        // })
+        this.setState({
+            ttv_toggle: false,
+            bttv_toggle: true,
+            ffz_toggle: true,
+            label_toggle: true,
+            loading: false
+        });
     }
 
     handleChange(event) {
         const attr = event.target.name
-        this.setState(state => {
-            const newVal = !state[attr]
-            console.log({ attr: newVal })
-            chrome.storage.sync.set({ [attr]: newVal }, function () {
-                chrome.storage.sync.get([attr], (data) => {
-                    console.log(data)
-                })
-            });
-            return ({
-                [attr]: newVal
-            })
-        })
+        // this.setState(state => {
+        //     const newVal = !state[attr]
+        //     console.log({ attr: newVal })
+        //     chrome.storage.sync.set({ [attr]: newVal }, function () {
+        //         chrome.storage.sync.get([attr], (data) => {
+        //             console.log(data)
+        //         })
+        //     });
+        //     return ({
+        //         [attr]: newVal
+        //     })
+        // })
     }
 
     render() {
         return (
-            <FormControl component="fieldset">
-                <FormLabel component="legend">General Settings</FormLabel>
+            <FormControl style={{ paddingLeft: "20px" }} component="fieldset">
+                <Typography variant="button" >General Settings</Typography>
                 {this.state.loading ?
                     <Backdrop open={this.state.loading}>
                         <CircularProgress color="inherit" />
