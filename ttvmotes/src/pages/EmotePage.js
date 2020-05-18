@@ -12,60 +12,74 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TablePagination from "@material-ui/core/TablePagination";
+import IOSSwitch from '../components/IOSSwitch';
 import { makeStyles } from "@material-ui/core/styles";
+import Typography from '@material-ui/core/Typography';
+import { tableHeight, popupHeight } from '../constants';
+
+const columns = [
+    {
+        id: "name",
+        label: "Name",
+        minWidth: 100,
+        align: "center"
+    },
+    {
+        id: "emote",
+        label: "Emote",
+        minWidth: 50,
+        align: "center"
+    },
+    {
+        id: "source",
+        label: "Source",
+        minWidth: 100,
+        align: "center"
+    },
+    {
+        id: "toggle",
+        label: "Toggle",
+        minWidth: 70,
+        align: "center"
+    }
+];
 
 const useStyles = makeStyles({
     root: {
         width: "100%"
     },
-    container: {
-        maxHeight: 300
+    tableContainer: {
+        maxHeight: tableHeight
+    },
+    tableFooter: {
+        backgroundColor: "#FAFAFA"
+    },
+    tablePaperContainer: {
+        height: popupHeight
+    },
+    nameColumn: {
+        maxWidth: 100
     }
 });
 
-const columns = [
-    { id: "name", label: "Name", minWidth: 170 },
-    { id: "emote", label: "Emote", minWidth: 100 }
-    // {
-    //     id: "population",
-    //     label: "Population",
-    //     minWidth: 170,
-    //     align: "right",
-    //     format: value => value.toLocaleString("en-US")
-    // },
-    // {
-    //     id: "size",
-    //     label: "Size\u00a0(km\u00b2)",
-    //     minWidth: 170,
-    //     align: "right",
-    //     format: value => value.toLocaleString("en-US")
-    // },
-    // {
-    //     id: "density",
-    //     label: "Density",
-    //     minWidth: 170,
-    //     align: "right",
-    //     format: value => value.toFixed(2)
-    // }
-];
-
-export default function EmotePage(props) {
+export default function EmotePage() {
     const classes = useStyles();
-    const [loading, setLoading] = React.useState(true);
-    const [currentPage, setCurrentPage] = React.useState(0);
-    const [emotesList, setEmotesList] = React.useState([]);
-    const [filteredList, setFilteredList] = React.useState([]);
-    const [searchQuery, setSearchQuery] = React.useState("");
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [emotesList, setEmotesList] = useState([]);
+    const [filteredList, setFilteredList] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [emoteDetailsList, setEmoteDetailsList] = useState([]);
 
     const handleSearchInput = (e) => {
         var value = e.target.value;
         setSearchQuery(value);
-        console.log(value)
         var filtered = emotesList.filter(emote => {
             return emote.toLowerCase().includes(value.toLowerCase())
         })
-        setFilteredList(filtered)
+        setFilteredList(filtered);
+        setCurrentPage(0);
     };
 
     const handleChangePage = (event, newPage) => {
@@ -77,81 +91,110 @@ export default function EmotePage(props) {
         setCurrentPage(0);
     };
 
+    const handleToggleChange = (event, newValue) => {
+        var emote = event.target.name;
+        var details = emoteDetailsList[emote]
+        details["enabled"] = newValue
+        setEmoteDetailsList(Object.assign({}, emoteDetailsList, { flag: false }))
+        chrome.storage.local.set({ [emote]: details }, () => {
+            console.log("toggled emote successfully")
+        })
+    }
+
+    // Component will mount
     useEffect(() => {
-        // chrome.storage.local.get(null, (emotes) => {
-        //     console.log(emotes)
-        //     this.setState({
-        //         emotesList: Object.keys(emotes),
-        //         loading: false
-        //     })
-        // })
-        var list = ["test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9"]
-        setEmotesList(list);
-        setFilteredList(list)
-        setLoading(false);
+        chrome.storage.local.get(null, (emotes) => {
+            var keys = Object.keys(emotes)
+            setEmoteDetailsList(emotes);
+            setEmotesList(keys);
+            setFilteredList(keys);
+            setLoading(false);
+        })
     }, []);
 
+    const chipMap = {
+        "bttv":
+            <Paper variant="outlined" style={{ borderColor: "#FE938C", color: "#FE938C" }}>
+                <Typography variant="caption" >
+                    <div style={{ textColor: "#FE938C" }}>BetterTTV</div>
+                </Typography>
+            </Paper>,
+        "ttv":
+            <Paper variant="outlined" style={{ borderColor: "#8338ec", color: "#8338ec" }} >
+                <Typography variant="caption" >
+                    <div style={{ textColor: "#8338ec" }}>Twitch</div>
+                </Typography>
+            </Paper>,
+        "ffz":
+            <Paper variant="outlined" style={{ borderColor: "#4281A4", color: "#4281A4" }}>
+                <Typography variant="caption">
+                    <div style={{ textColor: "#4281A4" }}>FrankerFaceZ</div>
+                </Typography>
+            </Paper>
+    }
+
     return (
-        <div>
+        <React.Fragment>
             {loading
                 ?
                 <Backdrop open={loading}>
-                    <CircularProgress color="inherit" />
+                    <CircularProgress />
                 </Backdrop>
                 :
-                <div>
-                    <Paper className={classes.root}>
-                        <SearchBar handleSearchInput={handleSearchInput} searchQuery={searchQuery} />
-
-                        <TableContainer className={classes.container}>
-                            <Table stickyHeader aria-label="sticky table">
-                                <TableHead>
-                                    <TableRow>
-                                        {columns.map(column => (
-                                            <TableCell
-                                                key={column.id}
-                                                align={column.align}
-                                                style={{ minWidth: column.minWidth }}
-                                            >
-                                                {column.label}
-                                            </TableCell>
-                                        ))}
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {filteredList
-                                        .slice(currentPage * rowsPerPage, currentPage * rowsPerPage + rowsPerPage)
-                                        .map(row => {
-                                            return (
-                                                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                                                    {columns.map(column => {
-                                                        const value = row[column.id];
-                                                        return (
-                                                            <TableCell key={column.id} align={column.align}>
-                                                                {column.format && typeof value === "number"
-                                                                    ? column.format(value)
-                                                                    : value}
-                                                            </TableCell>
-                                                        );
-                                                    })}
-                                                </TableRow>
-                                            );
-                                        })}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                        <TablePagination
-                            rowsPerPageOptions={[5, 10, 25, 100]}
-                            component="div"
-                            count={filteredList.length}
-                            rowsPerPage={rowsPerPage}
-                            page={currentPage}
-                            onChangePage={handleChangePage}
-                            onChangeRowsPerPage={handleChangeRowsPerPage}
-                        />
-                    </Paper>
-                </div>
+                <Paper className={classes.tablePaperContainer} variant="outlined" square>
+                    <SearchBar handleSearchInput={handleSearchInput} searchQuery={searchQuery} />
+                    <TableContainer className={classes.tableContainer}>
+                        <Table stickyHeader size="small" aria-label="a dense table">
+                            <TableHead>
+                                <TableRow>
+                                    {columns.map(column => (
+                                        <TableCell
+                                            key={column.id}
+                                            align={column.align}
+                                            style={{ maxWidth: column.minWidth }}
+                                        >
+                                            {column.label}
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {filteredList
+                                    .slice(currentPage * rowsPerPage, currentPage * rowsPerPage + rowsPerPage)
+                                    .map(row => {
+                                        var emoteDetails = emoteDetailsList[row]
+                                        return (
+                                            <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                                                <TableCell key="name" align="center" className={classes.nameColumn}>
+                                                    {row}
+                                                </TableCell>
+                                                <TableCell key="emote" align="center">
+                                                    <img src={emoteDetails["source"]}></img>
+                                                </TableCell>
+                                                <TableCell key="source" align="center">
+                                                    {chipMap[emoteDetails["class"]]}
+                                                </TableCell>
+                                                <TableCell key="toggle" align="center">
+                                                    <IOSSwitch checked={emoteDetailsList[row]["enabled"]} onChange={handleToggleChange} name={row} />
+                                                </TableCell>
+                                            </TableRow>
+                                        );
+                                    })}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <TablePagination
+                        rowsPerPageOptions={[5, 10, 25, 100]}
+                        component="div"
+                        count={filteredList.length}
+                        rowsPerPage={rowsPerPage}
+                        page={currentPage}
+                        onChangePage={handleChangePage}
+                        onChangeRowsPerPage={handleChangeRowsPerPage}
+                        className={classes.tableFooter}
+                    />
+                </Paper>
             }
-        </div>
+        </React.Fragment>
     )
 }

@@ -3,79 +3,85 @@ import React from 'react';
 import TabPanel from './components/TabPanel';
 import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '@material-ui/core/AppBar'
-import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography'
-
-import Box from '@material-ui/core/Box'
-
+import Typography from '@material-ui/core/Typography';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-
+import GitHubIcon from '@material-ui/icons/GitHub';
+import FaceIcon from '@material-ui/icons/Face';
+import IconButton from '@material-ui/core/IconButton';
+import TuneIcon from '@material-ui/icons/Tune';
+import GroupSharpIcon from '@material-ui/icons/GroupSharp';
+import { makeStyles } from "@material-ui/core/styles";
 
 import SettingsPage from './pages/SettingsPage';
 import EmotePage from './pages/EmotePage';
+import GroupsPage from './pages/GroupsPage';
+import LogoImage from './static/mmPopupIcon.png';
+import { popupWidth, popupHeight, githubUrl } from './constants';
 
 const useStyles = makeStyles(theme => ({
   tabPanel: {
-    maxWidth: "500px",
-    maxHeight: "400px",
-    minWidth: "500px",
-    minHeight: "400px"
+    maxWidth: popupWidth,
+    maxHeight: popupHeight,
+    minWidth: popupWidth,
+    minHeight: popupHeight
+  },
+  imgContainer: {
+    height: "auto",
+    width: "auto",
+    maxWidth: 36,
+    maxHeight: 36,
+    paddingRight: 15
+  },
+  mainLogo: {
+    flexGrow: 1
+  },
+  toolbar: {
+    width: popupWidth
   }
 }))
 export default function App(props) {
   const classes = useStyles();
   const [currentTab, setCurrentTab] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    console.log(newValue)
-    setCurrentTab(newValue);
+  const handleTabChange = (event, newValue) => {
+    setCurrentTab(newValue)
   }
-
 
   return (
     <div>
       <CssBaseline />
-      <AppBar position="static">
-        <Toolbar style={{ width: "600px" }}>
-          {/* Add logo/icon */}
-          <Typography variant="h6"  >
-            MessengerMotes
+      <AppBar color="primary" position="static">
+        <Toolbar className={classes.toolbar}>
+          <img className={classes.imgContainer} src={LogoImage} />
+          <Typography className={classes.mainLogo} variant="h6"  >
+            <b color="textSecondary">MessengerMotes</b>
           </Typography>
-          {/* Add github link */}
+          <IconButton target="_blank" href={githubUrl} >
+            <GitHubIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
-      <TabPanel value={currentTab} index={0}>
-        <Box className={classes.tabPanel}>
-          <EmotePage></EmotePage>
-        </Box>
+      <TabPanel className={classes.tabPanel} value={currentTab} index={0}>
+        <EmotePage />
       </TabPanel>
       <TabPanel className={classes.tabPanel} value={currentTab} index={1}>
-        <Box className={classes.tabPanel}>
-
-          <SettingsPage></SettingsPage>
-        </Box>
+        <SettingsPage />
       </TabPanel>
       <TabPanel className={classes.tabPanel} value={currentTab} index={2}>
-        <Box className={classes.tabPanel}>
-
-          <div>Coming soon</div>
-        </Box>
+        <GroupsPage />
       </TabPanel>
       <BottomNavigation
         value={currentTab}
-        onChange={(event, newValue) => {
-          setCurrentTab(newValue);
-        }}
+        onChange={handleTabChange}
         showLabels
       >
-        <BottomNavigationAction label="Emotes" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Settings" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Groups" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Emotes" icon={<FaceIcon />} />
+        <BottomNavigationAction label="Settings" icon={<TuneIcon />} />
+        <BottomNavigationAction label="Groups" icon={<GroupSharpIcon />} />
       </BottomNavigation>
-    </div>
+    </div >
   );
 
 }

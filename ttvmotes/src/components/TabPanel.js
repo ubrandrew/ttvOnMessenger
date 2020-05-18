@@ -1,24 +1,28 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import PropTypes from "prop-types";
 
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+    childContainer: {
+        flexGrow: 1,
+        height: 450
+    }
+}));
 
 export default function TabPanel(props) {
     const { children, value, index, ...other } = props;
-    console.log(`TAB PANEL VAL: ${value}, ${index}`)
+    const classes = useStyles()
+
     return (
         <div
-            style={{ flexGrow: 1 }}
+            className={classes.childContainer}
             role="tabpanel"
             hidden={value !== index}
             id={`full-width-tabpanel-${index}`}
-
         >
             {value === index && (
-                <Box p={3}>
-                    <Typography>{children}</Typography>
-                </Box>
+                <Typography>{children}</Typography>
             )}
         </div>
     )
