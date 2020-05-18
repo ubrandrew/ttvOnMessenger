@@ -2,6 +2,14 @@
     "name": "MessengerMotes",
     "version": "1.0",
     "description": "TTV and BTTV emotes on facebook messenger and facebook chat!",
+    "icons": {
+        "16": "icons/mm16.png",
+        "24": "icons/mm24.png",
+        "32": "icons/mm32.png",
+        "48": "icons/mm48.png",
+        "64": "icons/mm64.png",
+        "128": "icons/mm128.png"
+    },
     "content_scripts": [
         {
             "matches": [

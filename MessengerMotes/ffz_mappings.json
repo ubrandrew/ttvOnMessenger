@@ -383,12 +383,6 @@
         "enabled": true,
         "rank": 64
     },
-    "DICKS": {
-        "source": "https://cdn.frankerfacez.com/1e4adb53c6a94a9163d24d2ab888b6b7.png",
-        "class": "ffz",
-        "enabled": true,
-        "rank": 65
-    },
     "Pogey": {
         "source": "https://cdn.frankerfacez.com/3e990acd64fba92c1ff3b61585b3e738.PNG",
         "class": "ffz",
@@ -610,12 +604,6 @@
         "class": "ffz",
         "enabled": true,
         "rank": 102
-    },
-    "TooLewd": {
-        "source": "https://cdn.frankerfacez.com/bba501cf882f986894346e1fc869b64c.PNG",
-        "class": "ffz",
-        "enabled": true,
-        "rank": 103
     },
     "WideHarder": {
         "source": "https://cdn.frankerfacez.com/c47e7d81eef8e6f755597bf5b580296d.PNG",
@@ -977,12 +965,6 @@
         "enabled": true,
         "rank": 163
     },
-    "YuuBooty": {
-        "source": "https://cdn.frankerfacez.com/73ded3d6f5f0741a3501c0618be4dc87.png",
-        "class": "ffz",
-        "enabled": true,
-        "rank": 164
-    },
     "monkaThink": {
         "source": "https://cdn.frankerfacez.com/c3445eecc10eb63fc34834535e15b88c.PNG",
         "class": "ffz",
@@ -1295,12 +1277,6 @@
         "enabled": true,
         "rank": 216
     },
-    "LickMe": {
-        "source": "https://cdn.frankerfacez.com/7d1c602991a5a69c46dd6bc27ea87848.PNG",
-        "class": "ffz",
-        "enabled": true,
-        "rank": 217
-    },
     "PoiPoi": {
         "source": "https://cdn.frankerfacez.com/7e557613b1f1c16aa7d9601066999a42.PNG",
         "class": "ffz",
@@ -1330,12 +1306,6 @@
         "class": "ffz",
         "enabled": true,
         "rank": 222
-    },
-    "pepoRope": {
-        "source": "https://cdn.frankerfacez.com/659c1ca0fa57ac2a3f6e442130d38095.PNG",
-        "class": "ffz",
-        "enabled": true,
-        "rank": 223
     },
     "MeguminHappy": {
         "source": "https://cdn.frankerfacez.com/c2c60089cf4573f0bea93d93df6993b9.PNG",
@@ -1589,12 +1559,6 @@
         "enabled": true,
         "rank": 265
     },
-    "PoiGasm": {
-        "source": "https://cdn.frankerfacez.com/f14004befc7be0c6cd9417e52e2959cb.PNG",
-        "class": "ffz",
-        "enabled": true,
-        "rank": 266
-    },
     "peepoPat": {
         "source": "https://cdn.frankerfacez.com/ad2689176788ca37e20fee9a3944f246.PNG",
         "class": "ffz",
@@ -1793,12 +1757,6 @@
         "enabled": true,
         "rank": 299
     },
-    "DaijouBooty": {
-        "source": "https://cdn.frankerfacez.com/5b44b2e4e29356b906960610c2b14ffe.PNG",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 300
-    },
     "WideHardest2": {
         "source": "https://cdn.frankerfacez.com/e31aa50837110e8282ae5e843c0f5a53.PNG",
         "class": "ffz",
@@ -1955,12 +1913,6 @@
         "enabled": false,
         "rank": 326
     },
-    "ThatBooty": {
-        "source": "https://cdn.frankerfacez.com/6955d1a56576ffdf8bf172dcc8659ad0.PNG",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 327
-    },
     "sOk": {
         "source": "https://cdn.frankerfacez.com/07242076ac3fff4aaa776ea826ed4c41.PNG",
         "class": "ffz",
@@ -2020,12 +1972,6 @@
         "class": "ffz",
         "enabled": false,
         "rank": 337
-    },
-    "DoILookLikeIKnowWhatAFrankerFaceZeeIs": {
-        "source": "https://cdn.frankerfacez.com/8040b974cd4f7ff9756e7c8c7682db4c.png",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 338
     },
     "lulWut": {
         "source": "https://cdn.frankerfacez.com/6aad751d84b16d1a9416c41913cd19f4.PNG",
@@ -2116,12 +2062,6 @@
         "class": "ffz",
         "enabled": false,
         "rank": 353
-    },
-    "2Booty": {
-        "source": "https://cdn.frankerfacez.com/8138814b18465360a350b797ed850396.PNG",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 354
     },
     "OhMy": {
         "source": "https://cdn.frankerfacez.com/33aaabf4f6caddeca85bff5f8412dad7.png",
@@ -2345,12 +2285,6 @@
         "enabled": false,
         "rank": 391
     },
-    "LewdMouth": {
-        "source": "https://cdn.frankerfacez.com/f04c4768950c0aafa02f6878df3c74b0.PNG",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 392
-    },
     "PepoGun": {
         "source": "https://cdn.frankerfacez.com/70c7289907b18d869c2a280a21f8918f.PNG",
         "class": "ffz",
@@ -2405,12 +2339,6 @@
         "enabled": false,
         "rank": 401
     },
-    "DougDimmadomeOwnerOfTheDimmsdaleDimmadomeLookingOutHisDimmsdaleDimmadome": {
-        "source": "https://cdn.frankerfacez.com/982b4a56b3fc90c707023e96f6c65173.PNG",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 402
-    },
     "FeelsSmartMan": {
         "source": "https://cdn.frankerfacez.com/d822a427b9baf98293c52db9f394dee1.PNG",
         "class": "ffz",
@@ -2434,12 +2362,6 @@
         "class": "ffz",
         "enabled": false,
         "rank": 406
-    },
-    "LewdHina": {
-        "source": "https://cdn.frankerfacez.com/6c52b1a298fc9c952690630688b618c8.PNG",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 407
     },
     "HAhaa": {
         "source": "https://cdn.frankerfacez.com/6c4a7856e94b1fbca64cf87615ec0c7e.PNG",
@@ -2482,12 +2404,6 @@
         "class": "ffz",
         "enabled": false,
         "rank": 414
-    },
-    "ButtBooty": {
-        "source": "https://cdn.frankerfacez.com/a25deb353c2a73f0ba1f78fad953ec78.png",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 415
     },
     "oie": {
         "source": "https://cdn.frankerfacez.com/7c2473a6e6e697e6118e787b3e90db60.png",
@@ -2663,12 +2579,6 @@
         "enabled": false,
         "rank": 444
     },
-    "PantsGrab": {
-        "source": "https://cdn.frankerfacez.com/127d684f1a17d473ba6c7f8f53e3a025.png",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 445
-    },
     "peepoCry": {
         "source": "https://cdn.frankerfacez.com/a1f06d3e6e834592471f06c7b935d055.PNG",
         "class": "ffz",
@@ -2764,12 +2674,6 @@
         "class": "ffz",
         "enabled": false,
         "rank": 461
-    },
-    "AMAZINGA": {
-        "source": "https://cdn.frankerfacez.com/58c3e3c80791477931917fb0c5f68ec8.PNG",
-        "class": "ffz",
-        "enabled": false,
-        "rank": 462
     },
     "Poog": {
         "source": "https://cdn.frankerfacez.com/a504211eaa8b5944c9419155030177e2.PNG",

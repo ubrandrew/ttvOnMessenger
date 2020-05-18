@@ -611,12 +611,6 @@
         "enabled": true,
         "rank": 102
     },
-    "momoLewd": {
-        "source": "https://cdn.betterttv.net/emote/5b639695abaa836f3519b066/1x",
-        "class": "bttv",
-        "enabled": true,
-        "rank": 103
-    },
     "BBoomer": {
         "source": "https://cdn.betterttv.net/emote/5c447084f13c030e98f74f58/1x",
         "class": "bttv",
@@ -863,12 +857,6 @@
         "enabled": true,
         "rank": 144
     },
-    "TGSway": {
-        "source": "https://cdn.betterttv.net/emote/5ae0db3e0e617f612886cbe1/1x",
-        "class": "bttv",
-        "enabled": true,
-        "rank": 145
-    },
     "widepeepoHappy": {
         "source": "https://cdn.betterttv.net/emote/5e1a76dd8af14b5f1b438c04/1x",
         "class": "bttv",
@@ -1078,12 +1066,6 @@
         "class": "bttv",
         "enabled": true,
         "rank": 180
-    },
-    "loliTriggered": {
-        "source": "https://cdn.betterttv.net/emote/590696d6aedb6101b0caaff6/1x",
-        "class": "bttv",
-        "enabled": true,
-        "rank": 181
     },
     "KirbDance": {
         "source": "https://cdn.betterttv.net/emote/5b9011eea2c5266ff2b8fde5/1x",
@@ -2561,18 +2543,6 @@
         "enabled": true,
         "rank": 427
     },
-    "02Jump": {
-        "source": "https://cdn.betterttv.net/emote/5afdc4b3b5f610729e2f6c94/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 428
-    },
-    "loliPls": {
-        "source": "https://cdn.betterttv.net/emote/57183e39a888c3815834ab3a/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 429
-    },
     "micMUTED": {
         "source": "https://cdn.betterttv.net/emote/5a9a360c35035f0fd53689a0/1x",
         "class": "bttv",
@@ -2638,12 +2608,6 @@
         "class": "bttv",
         "enabled": true,
         "rank": 440
-    },
-    "dfragLewd": {
-        "source": "https://cdn.betterttv.net/emote/560e2625fdaf5f3275fe3e60/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 441
     },
     "4Weird": {
         "source": "https://cdn.betterttv.net/emote/5e2bb3aebca2995f13fc13e8/1x",
@@ -2975,12 +2939,6 @@
         "enabled": false,
         "rank": 496
     },
-    "2bSway": {
-        "source": "https://cdn.betterttv.net/emote/58eeed60c16464152ea89c3a/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 497
-    },
     "MeguminDance": {
         "source": "https://cdn.betterttv.net/emote/5ada16c635ca0201c05aed2f/1x",
         "class": "bttv",
@@ -3094,12 +3052,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 516
-    },
-    "dvaSway": {
-        "source": "https://cdn.betterttv.net/emote/57b0388ef3e193cd7237886b/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 517
     },
     "pepeCorn": {
         "source": "https://cdn.betterttv.net/emote/5b4cc7b2a13f8e3953e27ca6/1x",
@@ -3365,12 +3317,6 @@
         "enabled": false,
         "rank": 561
     },
-    "hubLewd": {
-        "source": "https://cdn.betterttv.net/emote/561fa81e8058b5d95661eeca/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 562
-    },
     "moogleH": {
         "source": "https://cdn.betterttv.net/emote/574cab2083c81caf42382679/1x",
         "class": "bttv",
@@ -3580,12 +3526,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 597
-    },
-    "02Dance": {
-        "source": "https://cdn.betterttv.net/emote/5b340250e50b09705d1c7cff/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 598
     },
     "monkaStare": {
         "source": "https://cdn.betterttv.net/emote/5ae9cc728f767c42ce1dfcc5/1x",
@@ -3905,12 +3845,6 @@
         "enabled": false,
         "rank": 651
     },
-    "AYAYALewd": {
-        "source": "https://cdn.betterttv.net/emote/5c47f49d8a603b67b0a7ff7e/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 652
-    },
     "cmonDance": {
         "source": "https://cdn.betterttv.net/emote/5c4e5891f602c17540a020e8/1x",
         "class": "bttv",
@@ -3965,12 +3899,6 @@
         "enabled": false,
         "rank": 661
     },
-    "RemEhehe": {
-        "source": "https://cdn.betterttv.net/emote/57adc84225cb03b67237d1e8/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 662
-    },
     "VITAS": {
         "source": "https://cdn.betterttv.net/emote/55debb50bd34fed64bf323e2/1x",
         "class": "bttv",
@@ -3982,12 +3910,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 664
-    },
-    "RemPls": {
-        "source": "https://cdn.betterttv.net/emote/57a42b904c090c1552d199cc/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 665
     },
     "sumParrot": {
         "source": "https://cdn.betterttv.net/emote/568ceab5ecb331fe33aa6f3c/1x",
@@ -4276,12 +4198,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 713
-    },
-    "2Bgasm": {
-        "source": "https://cdn.betterttv.net/emote/5bae640b9809cc1f5117c8a5/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 714
     },
     "BBaper": {
         "source": "https://cdn.betterttv.net/emote/592bee30e9f5aa0463766a0d/1x",
@@ -5381,12 +5297,6 @@
         "enabled": false,
         "rank": 897
     },
-    "chikaChika": {
-        "source": "https://cdn.betterttv.net/emote/5c5f48c34c7f0220299eb599/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 898
-    },
     "AlienDisco": {
         "source": "https://cdn.betterttv.net/emote/5d6ffc1ba32edb714a9de283/1x",
         "class": "bttv",
@@ -5531,12 +5441,6 @@
         "enabled": false,
         "rank": 922
     },
-    "LoliTantrum": {
-        "source": "https://cdn.betterttv.net/emote/5cc141427cdc9b39063a9281/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 923
-    },
     "POOTERS": {
         "source": "https://cdn.betterttv.net/emote/5d61467c375afb1da9a67b9d/1x",
         "class": "bttv",
@@ -5680,18 +5584,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 947
-    },
-    "loliDance": {
-        "source": "https://cdn.betterttv.net/emote/5a397f9babff055e4692acce/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 948
-    },
-    "Tsumiki": {
-        "source": "https://cdn.betterttv.net/emote/5afdc82bb5f610729e2f6cea/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 949
     },
     "JOGGERS": {
         "source": "https://cdn.betterttv.net/emote/5b464e1b5aaf83202830f9a5/1x",
@@ -6040,12 +5932,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 1007
-    },
-    "DiivesKiss": {
-        "source": "https://cdn.betterttv.net/emote/5b75d233c8b74235407ebe22/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1008
     },
     "BIGRACC": {
         "source": "https://cdn.betterttv.net/emote/5c40cd02f13c030e98f71bb0/1x",
@@ -6641,12 +6527,6 @@
         "enabled": false,
         "rank": 1107
     },
-    "MeguLewd": {
-        "source": "https://cdn.betterttv.net/emote/57b2cad925cb03b67237fa66/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1108
-    },
     "monkaHMM": {
         "source": "https://cdn.betterttv.net/emote/5a0a11ff8c22a247ead5d202/1x",
         "class": "bttv",
@@ -6682,12 +6562,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 1114
-    },
-    "loliHyperTriggered": {
-        "source": "https://cdn.betterttv.net/emote/5919aad027ab1b46a9da2c1d/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1115
     },
     "gachiS": {
         "source": "https://cdn.betterttv.net/emote/5b4cd1a9a13f8e3953e27d3e/1x",
@@ -7589,12 +7463,6 @@
         "enabled": false,
         "rank": 1265
     },
-    "100": {
-        "source": "https://cdn.betterttv.net/emote/5596370e67667a2b24eb745d/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1266
-    },
     "VaultPls": {
         "source": "https://cdn.betterttv.net/emote/55cbbe7da486ed0a3360ae9d/1x",
         "class": "bttv",
@@ -7762,12 +7630,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 1294
-    },
-    "LewdThoughts": {
-        "source": "https://cdn.betterttv.net/emote/5be0fa43f230b32d7edb58b3/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1295
     },
     "xqcJAM": {
         "source": "https://cdn.betterttv.net/emote/5c5c97604c7f0220299e945c/1x",
@@ -7967,12 +7829,6 @@
         "enabled": false,
         "rank": 1328
     },
-    "420": {
-        "source": "https://cdn.betterttv.net/emote/55a4b08e26b81c7c1108f1fb/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1329
-    },
     "monkaCopterPls": {
         "source": "https://cdn.betterttv.net/emote/59002a1b0c2b41198156eaca/1x",
         "class": "bttv",
@@ -8110,12 +7966,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 1352
-    },
-    "AnimeLick": {
-        "source": "https://cdn.betterttv.net/emote/5d6a9a5a4932b21d9c335e31/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1353
     },
     "papaPls": {
         "source": "https://cdn.betterttv.net/emote/5e83edad8b4f04096c5a6a6d/1x",
@@ -8501,12 +8351,6 @@
         "enabled": false,
         "rank": 1417
     },
-    "DiivesHeart": {
-        "source": "https://cdn.betterttv.net/emote/5bb1293bc825191f63410ce2/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1418
-    },
     "HPGDodge": {
         "source": "https://cdn.betterttv.net/emote/5bbb8873e4ed26378c1e9e0b/1x",
         "class": "bttv",
@@ -8866,12 +8710,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 1478
-    },
-    "RoeTranceSway": {
-        "source": "https://cdn.betterttv.net/emote/5b8d58a363cf211feb4e5c8e/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1479
     },
     "Rooster": {
         "source": "https://cdn.betterttv.net/emote/5bd0689e4d02f55ed86a7c62/1x",
@@ -9773,12 +9611,6 @@
         "enabled": false,
         "rank": 1629
     },
-    "AKRee1": {
-        "source": "https://cdn.betterttv.net/emote/5ce6a4a7d929b72bad9936be/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1630
-    },
     "gachiLick": {
         "source": "https://cdn.betterttv.net/emote/5d10b797e24efb162aeb579e/1x",
         "class": "bttv",
@@ -10505,12 +10337,6 @@
         "enabled": false,
         "rank": 1751
     },
-    "AKReee": {
-        "source": "https://cdn.betterttv.net/emote/59d3120c4ebd8047f54d308b/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1752
-    },
     "marioD": {
         "source": "https://cdn.betterttv.net/emote/5bc9fc6d13ee403d243414a8/1x",
         "class": "bttv",
@@ -10720,12 +10546,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 1787
-    },
-    "lewdGasm": {
-        "source": "https://cdn.betterttv.net/emote/579c85bf89f1e22b08749f62/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1788
     },
     "tomLUL": {
         "source": "https://cdn.betterttv.net/emote/57a0b6865e51e5ad1eba9540/1x",
@@ -12155,12 +11975,6 @@
         "enabled": false,
         "rank": 2026
     },
-    "RemSleepy": {
-        "source": "https://cdn.betterttv.net/emote/57b0b91125cb03b67237ea5c/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2027
-    },
     "SharkIra": {
         "source": "https://cdn.betterttv.net/emote/57b7d86151067c5243fe3043/1x",
         "class": "bttv",
@@ -12196,12 +12010,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2033
-    },
-    "LoliCopter": {
-        "source": "https://cdn.betterttv.net/emote/5bbbfd10e4ed26378c1ea40f/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2034
     },
     "latiasJam": {
         "source": "https://cdn.betterttv.net/emote/5c2441da2b99ae62dd0450c7/1x",
@@ -12671,12 +12479,6 @@
         "enabled": false,
         "rank": 2112
     },
-    "FeelsBlackMan": {
-        "source": "https://cdn.betterttv.net/emote/56eb11eb3ec4cc661ab32c5d/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2113
-    },
     "corgiWave": {
         "source": "https://cdn.betterttv.net/emote/575b6a877f6a897f394a6ec4/1x",
         "class": "bttv",
@@ -12712,12 +12514,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2119
-    },
-    "KarenLewd": {
-        "source": "https://cdn.betterttv.net/emote/5b9d2fa36c095b77aed3932a/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2120
     },
     "ToxicDeeColon": {
         "source": "https://cdn.betterttv.net/emote/5c2bc060a402f1677455a99a/1x",
@@ -12995,12 +12791,6 @@
         "enabled": false,
         "rank": 2166
     },
-    "kabieSway": {
-        "source": "https://cdn.betterttv.net/emote/59b594fe0d64e35b941728ec/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2167
-    },
     "ainsleySpicy": {
         "source": "https://cdn.betterttv.net/emote/59f627918c22a247ead5565c/1x",
         "class": "bttv",
@@ -13132,12 +12922,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2189
-    },
-    "RemWaifu": {
-        "source": "https://cdn.betterttv.net/emote/579ff1e72690e3a67b3d4e95/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2190
     },
     "AnimeThump": {
         "source": "https://cdn.betterttv.net/emote/57afb2ab9d3c46b572bbab5d/1x",
@@ -13901,12 +13685,6 @@
         "enabled": false,
         "rank": 2317
     },
-    "AnimePls": {
-        "source": "https://cdn.betterttv.net/emote/5d310083d4315b684d3d02e2/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2318
-    },
     "FoxboxBobble": {
         "source": "https://cdn.betterttv.net/emote/5de2931a4491e302d6436d63/1x",
         "class": "bttv",
@@ -13966,24 +13744,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2328
-    },
-    "BakaBaka": {
-        "source": "https://cdn.betterttv.net/emote/5738d082f9b8cf61729e9b8b/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2329
-    },
-    "RemBlush": {
-        "source": "https://cdn.betterttv.net/emote/57ac398e25cb03b67237c5d5/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2330
-    },
-    "RemReally": {
-        "source": "https://cdn.betterttv.net/emote/57b0b93025cb03b67237ea61/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2331
     },
     "awediotRoflan": {
         "source": "https://cdn.betterttv.net/emote/57b47bac383344554358bc65/1x",
@@ -14092,12 +13852,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2349
-    },
-    "AKRee2": {
-        "source": "https://cdn.betterttv.net/emote/5ce6a50bd929b72bad9936c3/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2350
     },
     "loeyaD": {
         "source": "https://cdn.betterttv.net/emote/5d1cc9273cf7920f49fae890/1x",
@@ -14957,12 +14711,6 @@
         "enabled": false,
         "rank": 2493
     },
-    "zero2Lewd": {
-        "source": "https://cdn.betterttv.net/emote/5ad88c62ee283022fddc7c29/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2494
-    },
     "WESOLIT": {
         "source": "https://cdn.betterttv.net/emote/5afdfa32f31f8b27008c6aff/1x",
         "class": "bttv",
@@ -15509,12 +15257,6 @@
         "enabled": false,
         "rank": 2585
     },
-    "gLewd": {
-        "source": "https://cdn.betterttv.net/emote/58c8519d994bb43c8d2fec61/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2586
-    },
     "BearKool": {
         "source": "https://cdn.betterttv.net/emote/590e3e995cef632cbe9508e8/1x",
         "class": "bttv",
@@ -16055,12 +15797,6 @@
         "enabled": false,
         "rank": 2676
     },
-    "RemNya": {
-        "source": "https://cdn.betterttv.net/emote/57ada9ebf3e193cd72377306/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2677
-    },
     "HarambePls": {
         "source": "https://cdn.betterttv.net/emote/580bbcc7605e15f21724e5e3/1x",
         "class": "bttv",
@@ -16181,12 +15917,6 @@
         "enabled": false,
         "rank": 2697
     },
-    "DiivesBBF": {
-        "source": "https://cdn.betterttv.net/emote/5c7c2fff298047130f9f9816/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2698
-    },
     "PEPEGGERS": {
         "source": "https://cdn.betterttv.net/emote/5c8b0baac9b377041a1b253a/1x",
         "class": "bttv",
@@ -16234,12 +15964,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2706
-    },
-    "feggUnicorn": {
-        "source": "https://cdn.betterttv.net/emote/54fae9c1633595ca4c713ace/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2707
     },
     "quackDuck": {
         "source": "https://cdn.betterttv.net/emote/551f5ff562e6bd0027aee42d/1x",
@@ -16342,12 +16066,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2724
-    },
-    "RemGasm": {
-        "source": "https://cdn.betterttv.net/emote/58135c770893d6546f913751/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2725
     },
     "resttHA": {
         "source": "https://cdn.betterttv.net/emote/58ab352bff7b7276f8e57dc9/1x",
@@ -16462,12 +16180,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2744
-    },
-    "LewdNep": {
-        "source": "https://cdn.betterttv.net/emote/5b8a8f6bc383a4254d154292/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2745
     },
     "PepeSadness": {
         "source": "https://cdn.betterttv.net/emote/5bb008424c872139acfbd1cf/1x",
@@ -17801,12 +17513,6 @@
         "enabled": false,
         "rank": 2967
     },
-    "RemLewd": {
-        "source": "https://cdn.betterttv.net/emote/57dbfa6e36502d961a5accb7/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2968
-    },
     "tomDab": {
         "source": "https://cdn.betterttv.net/emote/57f825aea6a90cd20eaf0b10/1x",
         "class": "bttv",
@@ -17830,12 +17536,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2972
-    },
-    "MikuNyaa": {
-        "source": "https://cdn.betterttv.net/emote/58425f360a45f07efe3ada5d/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2973
     },
     "santaBang": {
         "source": "https://cdn.betterttv.net/emote/5845f58ab0cd8242d96b6c9b/1x",
@@ -17944,12 +17644,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2991
-    },
-    "2000IQ": {
-        "source": "https://cdn.betterttv.net/emote/5bac1d6be61f087973ccebc7/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2992
     },
     "naliSmash": {
         "source": "https://cdn.betterttv.net/emote/5bba463f070e024656f3c517/1x",
@@ -18220,12 +17914,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 3037
-    },
-    "Akkolewd": {
-        "source": "https://cdn.betterttv.net/emote/5873e5b9c1869d570857430c/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 3038
     },
     "nepPls": {
         "source": "https://cdn.betterttv.net/emote/5877a6257672de56f0aca4e5/1x",
@@ -19163,12 +18851,6 @@
         "enabled": false,
         "rank": 3194
     },
-    "tLewd": {
-        "source": "https://cdn.betterttv.net/emote/56f5bc4a77f1eeb534a22ea0/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 3195
-    },
     "MegaFace": {
         "source": "https://cdn.betterttv.net/emote/5706f138f876f22d2c871b80/1x",
         "class": "bttv",
@@ -19474,12 +19156,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 3246
-    },
-    "AngarLick": {
-        "source": "https://cdn.betterttv.net/emote/5c20488174ed1019cd0a42d6/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 3247
     },
     "himHOP": {
         "source": "https://cdn.betterttv.net/emote/5c481cafcc29d267af5dacf4/1x",
@@ -19966,18 +19642,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 3328
-    },
-    "kuroLewd": {
-        "source": "https://cdn.betterttv.net/emote/5a9842e7a6ee0d7143b508cb/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 3329
-    },
-    "PIGGERS": {
-        "source": "https://cdn.betterttv.net/emote/5ab37daaa373d4037ab4cc6e/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 3330
     },
     "pepeSecondhand": {
         "source": "https://cdn.betterttv.net/emote/5b535fb8e721300bd0b9b1e4/1x",
