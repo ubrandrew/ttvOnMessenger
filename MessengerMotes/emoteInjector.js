@@ -90,8 +90,8 @@ function buildEmote(word, source) {
         (source.class === 'bttv' && bttv_toggle) ||
         (source.class === 'ffz' && ffz_toggle)) {
         var tag = document.createElement("div");
-        tag.className = 'tooltip ' + source.class;
-        tag.title = word;
+        tag.className = 'tooltip ' + source.class + ' ' + word;
+        tag.id = encodeURIComponent(word);
         var img = document.createElement("img")
         img.className = "tooltip";
         img.alt = word;
@@ -105,7 +105,6 @@ function buildEmote(word, source) {
     } else {
         return word
     }
-
 }
 
 // Gets all messages and replaces words (instead of observed mutations only)
@@ -124,7 +123,7 @@ function toggleEmoteClass(className, show) {
     } else {
         var emotes = document.querySelectorAll(`div.${className}`);
         for (emote of emotes) {
-            emote.parentNode.replaceChild(document.createTextNode(emote.title), emote);
+            emote.parentNode.replaceChild(document.createTextNode(emote.id), emote);
         }
     }
 }
@@ -161,6 +160,19 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
                     }
                 }
                 break;
+            default:
+                try {
+                    if (storageChange.newValue.enabled) {
+                        processCurrentPage()
+                    } else {
+                        var emotes = Array.prototype.slice.call(document.getElementsByClassName(key));
+                        for (emote of emotes) {
+                            emote.parentNode.replaceChild(document.createTextNode(emote.id), emote);
+                        }
+                    }
+                } catch (err) {
+                    console.log(err)
+                }
         }
     }
 });

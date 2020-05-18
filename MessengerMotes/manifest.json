@@ -16,7 +16,7 @@
                 "*://*.messenger.com/*"
             ],
             "js": [
-                "myscript.js"
+                "emoteInjector.js"
             ],
             "css": [
                 "tooltip.css"
