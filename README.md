@@ -8,7 +8,7 @@ To run a local instance of this project, run the `build.sh` script to build the 
 Then, navigate to [chrome://extensions/](chrome://extensions/), enable developer mode, click "load unpacked", then select the `MessengerMotesBuild` folder.
 
 ## Emote Injector
-The content script `emoteInjector.js` and the background script `background.js` are the main logic behind emote injection. These files, along with all other necessary chrome extension files are located in the `MessengerMotes` directory.
+The content script `emoteInjector.js` and the background script `background.js` are the main logic behind emote injection. These files, along with all other necessary chrome extension files are located in the `MessengerMotes` directory. This could be used as a standalone extension without a popup.
 
 ## Extension Popup
 The popup for the extension is located in the directory named `ttvmotes` (should probably rename to `popup`). It's a create-react-app project that uses material-ui components (documentation [here](https://material-ui.com/)). Yarn commands are standard (you can navigate into the `ttvmotes` directory to see the readme specifying the commands)
