@@ -165,6 +165,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
                     if (storageChange.newValue.enabled) {
                         processCurrentPage()
                     } else {
+                        // Copy array 
                         var emotes = Array.prototype.slice.call(document.getElementsByClassName(key));
                         for (emote of emotes) {
                             emote.parentNode.replaceChild(document.createTextNode(emote.id), emote);

@@ -1,0 +1,79 @@
+body {
+    background: #c98ef5 !important;
+}
+
+.logo-container {
+    padding-top: 40px;
+}
+
+.logo-name {
+    padding-left: 60px;
+    color: whitesmoke;
+    flex-grow: 1;
+}
+
+#wrapper {
+    position: relative;
+    height: 100%;
+}
+
+#copy,
+#logo {
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.info-col {
+    padding-left: 110px;
+}
+
+.btn-xl {
+    padding: 15px 20px;
+    font-size: 22px;
+    border-radius: 7px;
+}
+
+.caption {
+    font-size: 18px;
+}
+
+.description {
+    padding-bottom: 50px;
+}
+
+.background {
+    background-image: url("../static/backdrop.png");
+    width: 700px;
+    height: 393px;
+    background-size: contain;
+}
+
+.demo {
+    padding-top: 40px;
+    padding-left: 20px;
+}
+
+.social-icons {
+    width: 32px;
+    height: "auto";
+    /* padding-left: 10px;
+    padding-top: 30px; */
+}
+
+.disclaimer {
+    font-size: 11px;
+    padding-top: 10px
+}
+
+footer {
+    font-size: 11px;
+}
+
+.github {
+    font-size: 12px;
+    color: whitesmoke;
+    padding-right: 100px;
+}
