@@ -5807,12 +5807,6 @@
         "enabled": false,
         "rank": 986
     },
-    "monkaCopShoot": {
-        "source": "https://cdn.betterttv.net/emote/5a23949325daea068c7b27c6/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 987
-    },
     "pepeSenora": {
         "source": "https://cdn.betterttv.net/emote/5a85705d015fa621b3af4b35/1x",
         "class": "bttv",
@@ -10529,12 +10523,6 @@
         "enabled": false,
         "rank": 1784
     },
-    "pepePlant": {
-        "source": "https://cdn.betterttv.net/emote/5e248e4c1df9195f1a4c9dea/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 1785
-    },
     "CatDance": {
         "source": "https://cdn.betterttv.net/emote/5e2cef19bca2995f13fc226b/1x",
         "class": "bttv",
@@ -14627,12 +14615,6 @@
         "enabled": false,
         "rank": 2479
     },
-    "rareJew": {
-        "source": "https://cdn.betterttv.net/emote/5660ab5a13dbeccb5899b61e/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2480
-    },
     "danPIKA": {
         "source": "https://cdn.betterttv.net/emote/56938f0a6bc784fb79bad715/1x",
         "class": "bttv",
@@ -15142,12 +15124,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 2566
-    },
-    "BUTTS": {
-        "source": "https://cdn.betterttv.net/emote/5e5bf75ca3253554d6629479/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 2567
     },
     "kekW": {
         "source": "https://cdn.betterttv.net/emote/5ea67b4cce7cbf62fe15ff50/1x",
@@ -19162,12 +19138,6 @@
         "class": "bttv",
         "enabled": false,
         "rank": 3248
-    },
-    "PEPENOSAURUS": {
-        "source": "https://cdn.betterttv.net/emote/5c49bf3707d98a72a330a07a/1x",
-        "class": "bttv",
-        "enabled": false,
-        "rank": 3249
     },
     "NOMEGALUL": {
         "source": "https://cdn.betterttv.net/emote/5c56fe8839bfc5202398645c/1x",
