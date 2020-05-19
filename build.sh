@@ -2,6 +2,7 @@
 # Building popup and merging with chrome extension 
 
 cd ttvmotes
+yarn install
 yarn build 
 
 cd ..
