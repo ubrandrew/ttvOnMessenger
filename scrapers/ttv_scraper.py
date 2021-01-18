@@ -4,10 +4,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 from selenium.common.exceptions import TimeoutException
 import re
+import urllib.request
 
 option = webdriver.ChromeOptions()
 option.add_argument("-incognito")
-browser = webdriver.Chrome(executable_path='/Users/andrew/Downloads/chromedriver', chrome_options=option)
+browser = webdriver.Chrome(executable_path='/mnt/c/Users/Andrew/Downloads/chromedriver.exe', chrome_options=option)
 browser.get("https://twitchemotes.com/")
 
 import time
@@ -35,14 +36,19 @@ re_src = r'<img src="(.*)" data-tooltip="<strong>(.[^<>]*)</strong>" data-regex=
 
 mapping = {}
 for element in elements:
-    img_src = element.get_attribute('src')
-    name = element.get_attribute('data-tooltip')[8:-9]
-    mapping[name] = { 
-        "source": img_src,
-        "class": "ttv",
-        "enabled": True
-    }
-    print(name, img_src)
+    try:
+        img_src = element.get_attribute('src')
+
+        name = element.get_attribute('data-tooltip')[8:-9]
+        urllib.request.urlretrieve(img_src, f"{name}.jpg")
+        mapping[name] = { 
+            "source": img_src,
+            "class": "ttv",
+            "enabled": True
+        }
+        print(name, img_src)
+    except:
+        continue
 
 import json
 

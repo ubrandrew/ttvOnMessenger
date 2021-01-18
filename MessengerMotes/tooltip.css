@@ -1,8 +1,8 @@
 /* Tooltip container */
 .tooltip {
-    position: relative;
-    display: inline-block;
-  }
+  position: relative;
+  display: inline-block;
+}
   
 /* Tooltip text */
 .tooltip .tooltiptext {
@@ -17,7 +17,7 @@
 
   /* Position the tooltip text */
   position: absolute;
-  z-index: 1;
+  z-index: 10000 !important ;
   bottom: 125%;
   left: 50%;
   margin-left: -60px;
@@ -40,7 +40,8 @@
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+/* .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-}
+  z-index: inherit;
+} */

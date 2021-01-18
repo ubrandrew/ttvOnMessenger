@@ -12,4 +12,4 @@ rm -rf MessengerMotesBuild
 
 mkdir MessengerMotesBuild
 cp -a ttvmotes/build/. MessengerMotesBuild
-cp -a MessengerMotes/. MEssengerMotesBuild
+cp -a MessengerMotes/. MessengerMotesBuild

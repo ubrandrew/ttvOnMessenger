@@ -1,5 +1,3 @@
-
-
 // Listener that listens for settings changes (keep settings in memory because callbacks are confusing...)
 // TODO: Look into caching emotes (to reduce async calls to chrome storage? is this expensive?)
 // init is necessary because storage watcher doesnt trigger on newly created keys
@@ -14,45 +12,75 @@
 //         return true
 //     });
 
-// function that waits for root element loads (checks every 100ms)
-function addObserverIfDesiredNodeAvailable(observer) {
-    var main_element = document.querySelector("div._4sp8")
-    if (!main_element) {
-        window.setTimeout(addObserverIfDesiredNodeAvailable, 100);
-        return;
-    }
-    observer.observe(main_element, {
-        subtree: true,
-        attributes: false,
-        childList: true
-    });
+// MSG_SURROUNDING_TAG_CLASS surrounds the DIV containing the actual text / message
+const THEMED_MSG_SURROUNDING_TAG_CLASS = 'lm2lsiji';
+const UNTHEMED_MSG_SURROUNDING_TAG_CLASS = 'ljqsnud1 qv66sw1b'
+
+// main element is the root of the page (data-pagelet = root)
+const MAIN_SELECTOR_TO_WATCH = "div[data-pagelet='root']"
+const PROCESSED_TAG = 'mm-processed'
+
+function getAllUnprocessedMessages() {
+    var msgs = document.getElementsByClassName(UNTHEMED_MSG_SURROUNDING_TAG_CLASS)
+    var themedMsgs = document.getElementsByClassName(THEMED_MSG_SURROUNDING_TAG_CLASS)
+    var compiledMsgs = [...msgs].concat([...themedMsgs])
+    return compiledMsgs.filter((ele) => {
+        return !ele.hasAttribute(PROCESSED_TAG)
+    })
 }
 
 // Function that is called when mutations are observed
 // Checks if mutated element is a fb message, then resplaces
-function subscriber(mutations) {
-    mutations.forEach((mutation) => {
-        // if no emotes are enabled, dont process mutations
-        if (mutation.target.className == '_41ud' && mutation.target.tagName == 'DIV' && (ttv_toggle || bttv_toggle || ffz_toggle))
-            replaceTextWithEmotes(mutation.target.children)
+function chatSubscriber(mutations) {
+    if (ttv_toggle || bttv_toggle || ffz_toggle) {
+        mutations.forEach(mutation => {
+            if (mutation.addedNodes.length) {
+                try {
+                    var addedNode = mutation.addedNodes[0];
+                    var chatEle = addedNode.getElementsByClassName("ljqsnud1 qv66sw1b").length ? addedNode.getElementsByClassName("ljqsnud1 qv66sw1b") : addedNode.getElementsByClassName("lm2lsiji");
+                    
+                     if (chatEle && chatEle.length){
+                        processElements(chatEle);
+                    }
+                } catch (e) {
+                }
+            }
+        });
+    }
+}
+
+function processElements(elements) {
+    [...elements].forEach(element => {
+        replaceTextWithEmotes(element);
     });
 }
 
-async function replaceTextWithEmotes(elements) {
-    for (const element of elements) {
-        if (element.className.includes('clearfix _o46 _3erg')) {
-            let textElement;
-            try {
-                textElement = element.children[0].children[1].children[0]
-                let words = textElement.innerHTML.split(" ");
-                processWordList(words).then((data) => {
-                    textElement.innerHTML = data.join(" ")
-                })
-            }
-            catch (err) {
-                continue
-            }
-        }
+// function that waits for root element loads (checks every 100ms)
+function addObserverIfDesiredNodeAvailable(observer, elementSelectorString) {
+    var element = document.querySelector(elementSelectorString)
+    if (!element) {
+        window.setTimeout(addObserverIfDesiredNodeAvailable, 500, observer, elementSelectorString);
+        return;
+    }
+    observer.observe(element, {
+        subtree: true,
+        childList: true,
+        attributes: false
+    });
+}
+
+function replaceTextWithEmotes(element) {
+    try {
+        let textElement = element.children[0];
+        let words = textElement.innerHTML.split(" ");
+        processWordList(words).then((data) => {
+            textElement.innerHTML = data.join(" ");
+        });
+        let att = document.createAttribute(PROCESSED_TAG);
+        textElement.setAttributeNode(att);
+    }
+    catch (err) {
+        return;
     }
 }
 
@@ -61,13 +89,13 @@ async function processWordList(words) {
     for (let [i, word] of words.entries()) {
         try {
             let source = await getEmoteSource(word);
-            words[i] = buildEmote(word, source[word])
+            words[i] = buildEmote(word, source[word]);
         } catch (err) {
             // emote doesnt exist
-            continue
+            continue;
         }
     }
-    return words
+    return words;
 }
 
 // Retrieves emote source from chrome.storage
@@ -90,7 +118,7 @@ function buildEmote(word, source) {
         (source.class === 'bttv' && bttv_toggle) ||
         (source.class === 'ffz' && ffz_toggle)) {
         var tag = document.createElement("div");
-        tag.className = 'tooltip ' + source.class + ' ' + word;
+        tag.className = 'mm-msg tooltip ' + source.class + ' ' + word;
         tag.id = encodeURIComponent(word);
         var img = document.createElement("img")
         img.className = "tooltip";
@@ -110,11 +138,10 @@ function buildEmote(word, source) {
 // Gets all messages and replaces words (instead of observed mutations only)
 // Triggered by settings toggle
 function processCurrentPage() {
-    console.log("processing page")
-    var messages = document.querySelectorAll('div._41ud')
+    var messages = getAllUnprocessedMessages();
     messages.forEach((msg) => {
-        replaceTextWithEmotes(msg.children)
-    })
+        replaceTextWithEmotes(msg)
+    });
 }
 
 function toggleEmoteClass(className, show) {
@@ -195,8 +222,6 @@ getSettings().then((value) => {
     bttv_toggle = value.bttv_toggle;
     ffz_toggle = value.ffz_toggle;
     label_toggle = value.label_toggle;
-    var observer = new MutationObserver(subscriber);
-    addObserverIfDesiredNodeAvailable(observer);
+    var chatObserver = new MutationObserver(chatSubscriber);
+    addObserverIfDesiredNodeAvailable(chatObserver, "div[data-pagelet='root']");
 })
-
-

@@ -89,13 +89,13 @@ class SettingsPage extends React.Component {
                                         label="FrankerFaceZ emotes"
                                     />
                                     <br />
-                                    <FormControlLabel
+                                    {/* <FormControlLabel
                                         control={
                                             <IOSSwitch checked={this.state.label_toggle} onChange={this.handleChange} name="label_toggle" />
                                         }
                                         label="Emote Labels"
                                     />
-                                    <br />
+                                    <br /> */}
                                 </FormGroup>
                             </FormControl>
                         </Paper>
