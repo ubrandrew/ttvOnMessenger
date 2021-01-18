@@ -7,7 +7,7 @@ import re
 
 option = webdriver.ChromeOptions()
 option.add_argument("-incognito")
-browser = webdriver.Chrome(executable_path='/Users/andrew/Downloads/chromedriver', chrome_options=option)
+browser = webdriver.Chrome(executable_path='/mnt/c/Users/Andrew/Downloads/chromedriver.exe', chrome_options=option)
 browser.get("https://betterttv.com/emotes/top")
 
 import time
@@ -15,7 +15,10 @@ SCROLL_PAUSE_TIME = 1
 # Get scroll height
 last_height = browser.execute_script("return document.body.scrollHeight")
 
-while True:
+import time
+
+t_end = time.time() + 60
+while time.time() < t_end:
     # Scroll down to bottom
     browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 

@@ -123,6 +123,7 @@ function buildEmote(word, source) {
         var img = document.createElement("img")
         img.className = "tooltip";
         img.alt = word;
+        img.title = word;
         img.src = source.source
         var span = document.createElement("span");
         span.className = label_toggle ? 'tooltiptext' : 'tooltiptext-disabled'

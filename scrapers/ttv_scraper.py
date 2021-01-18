@@ -40,7 +40,7 @@ for element in elements:
         img_src = element.get_attribute('src')
 
         name = element.get_attribute('data-tooltip')[8:-9]
-        urllib.request.urlretrieve(img_src, f"{name}.jpg")
+        # urllib.request.urlretrieve(img_src, f"{name}.jpg")
         mapping[name] = { 
             "source": img_src,
             "class": "ttv",

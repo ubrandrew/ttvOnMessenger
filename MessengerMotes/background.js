@@ -58,6 +58,7 @@ async function loadMappingsIntoChromeStorage(sourceList) {
 // Listener that triggers when the chrome extension is installed
 // Initializes settings 
 chrome.runtime.onInstalled.addListener(function () {
+    chrome.storage.local.clear();
     const ttv_emotes_url = chrome.runtime.getURL('ttv_mappings.json')
     const bttv_emotes_url = chrome.runtime.getURL('bttv_mappings.json')
     const ffz_emotes_url = chrome.runtime.getURL('ffz_mappings.json')
@@ -65,7 +66,6 @@ chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set({ ttv_toggle: true, bttv_toggle: true, ffz_toggle: true, label_toggle: true }, function () {
         console.log('Value is set to ' + true);
     });
-    console.log(ffz_emotes_url)
     loadMappingsIntoChromeStorage([ffz_emotes_url, bttv_emotes_url, ttv_emotes_url])
 });
 
