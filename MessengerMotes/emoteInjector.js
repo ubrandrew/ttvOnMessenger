@@ -62,6 +62,7 @@ function addObserverIfDesiredNodeAvailable(observer, elementSelectorString) {
         window.setTimeout(addObserverIfDesiredNodeAvailable, 500, observer, elementSelectorString);
         return;
     }
+    processCurrentPage()
     observer.observe(element, {
         subtree: true,
         childList: true,
